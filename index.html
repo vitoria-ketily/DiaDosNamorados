@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surpresa</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter first-letter">
+                    <div class="text">
+                        <strong>Feliz dia dos namorados amor.</strong>
+                        <p>
+                            Queria passar esse dia com você, mas eu sei que não dá pra nós dois então decidi preparar essa surpresinha pra você.<br>
+                            Eu te amo muito meu amor, mais do que tudo no mundo, que hoje meu princeso seja liberado mais cedo pra conversar comigo, bom é isso.
+                            <center>Te amo amor ❤️</center> 
+                        </p>
+                    </div>
+                </div>
+                <div class="letter second-letter">
+                    <div class="text">
+                        <strong>Agora fique com essa foto da gente juntinho pra você fiar todo boiolinha em público</strong>
+                       <center><img src="https://i.pinimg.com/474x/17/b9/6b/17b96b7b59b2c48367aec04a3ea388ba.jpg" height="100px" width="80px"></center>
+                    </div>
+                </div>
+            </div>
+            <div class="heart"></div>
+        </div>
+    </div>
+    <script>
+        const envelope = document.querySelector('.envelope-wrapper');
+        const firstLetter = document.querySelector('.first-letter');
+        const secondLetter = document.querySelector('.second-letter');
+        let letterOpen = false;
+
+        envelope.addEventListener('click', () => {
+            if (!letterOpen) {
+                envelope.classList.toggle('flap');
+                letterOpen = true;
+            }
+        });
+
+        firstLetter.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent the envelope from closing
+            firstLetter.style.display = 'none';
+            secondLetter.style.display = 'block';
+        });
+
+        secondLetter.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent the envelope from closing
+            secondLetter.style.display = 'none';
+            firstLetter.style.display = 'block';
+            envelope.classList.remove('flap');
+            letterOpen = false;
+        });
+    </script>
+</body>
+</html>
